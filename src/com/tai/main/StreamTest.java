@@ -2,6 +2,7 @@ package com.tai.main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -9,14 +10,13 @@ import java.util.stream.Collectors;
 
 import com.tai.model.Student;
 
-import sun.print.resources.serviceui;
-
 public class StreamTest {
 	
 	public static void main(String args[]){
 		filterStringLengthTest();
 		sumTest();
 		maxTest();
+		sortTest();
 		reduceTest();
 		groupTest();
 	}
@@ -38,6 +38,13 @@ public class StreamTest {
 		List<Student> list = Arrays.asList(new Student("a", 16), new Student("b", 1), new Student("c", 33), new Student("d", 29));
 		Optional<Student> optional = list.stream().max((s1,s2)-> s1.getAge() - s2.getAge());
 		System.out.println(optional.get());
+	}
+	
+	public static void sortTest() {
+		List<Student> list = Arrays.asList(new Student("a", 16), new Student("b", 1), new Student("c", 33), new Student("d", 29));
+		Comparator<Student> comparator = (s1, s2) -> {return s1.getAge() - s2.getAge();};
+		List<Student> result = list.stream().sorted(comparator).collect(Collectors.toList());
+		System.out.println(result);
 	}
 	
 	public static void reduceTest() {
