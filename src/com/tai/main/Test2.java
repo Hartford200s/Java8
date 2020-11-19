@@ -10,7 +10,7 @@ public class Test2 {
         for(int i = 0; i < list.size(); i++) {
             mappedList.add(mapper.apply(list.get(i)));
         }
-        return mappedList;
+        return mappedList; 
     }
 	
 	static <String, Y> ArrayList<Y> map2(ArrayList<String> list, Function<String, Y> mapper) {
