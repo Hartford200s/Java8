@@ -9,6 +9,10 @@ public class Main {
 		System.out.println(ErrorCode.RUNERROR.getMessage());
 		System.out.println(ErrorCode.RUNERROR.ordinal());
 		System.out.println(ErrorCode.STOPERROR.ordinal());
+		
+		ErrorCode errorCode = ErrorCode.getErrorCodebyCode("001");
+		System.out.println(errorCode.getMessage());
+		System.out.println(errorCode.getCode());
 	}
 	
 	public static void executeAction(ActionEnum actionEnum) {
